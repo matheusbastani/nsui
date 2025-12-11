@@ -13,7 +13,6 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "changelog": "auto-changelog -p --commit-filter 'git log --pretty=oneline -- packages/x'",
     "dev": "tsc --watch",
     "clean": "rimraf dist"
   },
@@ -22,10 +21,6 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.15"
-  },
-  "dependencies": {
-    "lint-staged": "^16.2.7"
+    "typescript": "^5.9.3"
   }
 }
