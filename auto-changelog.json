@@ -1,9 +1,0 @@
-{
-  "output": "CHANGELOG.md",
-  "template": "keepachangelog",
-  "unreleased": true,
-  "commitLimit": false,
-  "backfillLimit": false,
-  "includeDetails": true,
-  "replaceVersion": true
-}
