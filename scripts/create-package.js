@@ -24,10 +24,10 @@ async function main() {
   createSrcIndex(fullPath)
   createTsConfig(fullPath, inputPath)
   createTsupConfig(fullPath)
-  createPackageJson(fullPath, folderName)
+  createPackageJson(fullPath, folderName, inputPath)
   createReadme(fullPath, folderName)
 
-  console.log(`Package "${folderName}" created at: ${fullPath}`)
+  console.log(`package "${folderName}" created at: ${fullPath}`)
 }
 
 function createFolders(fullPath) {
@@ -43,7 +43,7 @@ function createSrcIndex(fullPath) {
 function createTsConfig(fullPath, inputPath) {
   const depth = inputPath.split(path.sep).length
   const tsconfigContent = {
-    extends: `${'../'.repeat(depth)}../tsconfig.json`,
+    extends: `${'../'.repeat(depth)}tsconfig.json`,
     compilerOptions: {
       outDir: 'dist',
       declaration: true,
@@ -70,13 +70,15 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  target: 'esnext'
+  target: 'esnext',
+  splitting: false,
+  treeshake: true
 })
 `
   fs.writeFileSync(path.join(fullPath, 'tsup.config.ts'), tsupContent, 'utf-8')
 }
 
-function createPackageJson(fullPath, folderName) {
+function createPackageJson(fullPath, folderName, inputPath) {
   const packageContent = {
     name: `@nsui/${folderName}`,
     version: '0.0.0',
@@ -86,14 +88,15 @@ function createPackageJson(fullPath, folderName) {
     repository: {
       type: 'git',
       url: 'git+https://github.com/matheusbastani/nsui',
-      directory: `packages/${folderName}`
+      directory: `packages/${inputPath}`
     },
-    main: 'dist/index.js',
+    main: 'src/index.ts',
     types: 'dist/index.d.ts',
+    files: ['dist'],
     scripts: {
-      build: 'tsc',
+      build: 'tsup',
       clean: 'rimraf dist',
-      dev: 'tsc --watch',
+      dev: 'tsup --watch',
       lint: 'eslint . --ext ts,tsx'
     },
     devDependencies: {
