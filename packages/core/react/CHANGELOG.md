@@ -5,4 +5,4 @@
 ### Major Changes
 
 - Initial setup of React components.
-- Export Provider.
+- Export `NSUIProvider`.
