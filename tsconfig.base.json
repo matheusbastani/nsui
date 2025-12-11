@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM"],
     "strict": true,
     "esModuleInterop": true,
@@ -11,5 +12,6 @@
     "jsx": "react-jsx",
     "noEmit": true
   },
-  "exclude": ["node_modules", "dist"]
+  "include": ["packages"],
+  "exclude": ["**/node_modules", "**/dist", "**/.turbo"]
 }
