@@ -5,6 +5,7 @@
     "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM"],
     "strict": true,
+    "composite": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,

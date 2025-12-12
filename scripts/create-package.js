@@ -43,7 +43,7 @@ function createSrcIndex(fullPath) {
 function createTsConfig(fullPath, inputPath) {
   const depth = inputPath.split('/').filter(Boolean).length
   const tsconfigContent = {
-    extends: `${'../'.repeat(depth)}../tsconfig.base.json`,
+    extends: `${'../'.repeat(depth)}../tsconfig.json`,
     compilerOptions: {
       outDir: 'dist',
       declaration: true,
