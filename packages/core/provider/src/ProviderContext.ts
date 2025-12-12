@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react'
+import type { GlobalConfigRequired, NSUIComponentsConfigRequired } from './types'
 
 export type NSUIContextProps = {
-  transitionDuration: number
-  prefixCls: string
+  global: GlobalConfigRequired
+  components: NSUIComponentsConfigRequired
 }
 
 export const NSUIContext = createContext<NSUIContextProps | undefined>(undefined)

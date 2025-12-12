@@ -1,23 +1,26 @@
 import { ReactNode, createElement } from 'react'
 import { NSUIContext, type NSUIContextProps } from './ProviderContext'
+import type { GlobalConfig, NSUIComponentsConfig } from './types'
 
 export type NSUIProviderProps = {
   children: ReactNode
-  config?: {
-    /** Duration in milliseconds for transitions and animations of all components. */
-    transitionDuration?: number
-    /** Prefix classname for all components.
-     *
-     * Ex: `nsui-button` */
-    prefixCls?: string
-  }
+  global?: GlobalConfig
+  components?: NSUIComponentsConfig
 }
 
 /** NSUIProvider wraps your app and provides global configuration for the NSUI components library. */
-export const NSUIProvider = ({ children, config }: NSUIProviderProps) => {
+export const NSUIProvider = ({ children, global, components }: NSUIProviderProps) => {
   const contextValue: NSUIContextProps = {
-    transitionDuration: config?.transitionDuration ?? 300,
-    prefixCls: config?.prefixCls ?? 'nsui'
+    global: {
+      prefixCls: global?.prefixCls ?? 'nsui',
+      transitionDuration: global?.transitionDuration ?? 300
+    },
+    components: {
+      button: {
+        isRippleDisabled: components?.button?.isRippleDisabled ?? false,
+        transitionDuration: components?.button?.transitionDuration
+      }
+    }
   }
 
   return createElement(NSUIContext.Provider, { value: contextValue }, children)

@@ -1,5 +1,12 @@
 # @nsui/provider
 
+## 1.2.0
+
+### Minor Changes
+
+- Moved existing props into new global props structure
+- Added `components` object with `button` config containing `isRippleDisabled` and `transitionDuration`
+
 ## 1.1.0
 
 ### Minor Changes
