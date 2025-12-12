@@ -1,0 +1,36 @@
+{
+  "name": "@nsui/button",
+  "version": "1.0.0",
+  "description": "NSUI Button component.",
+  "keywords": [
+    "nsui",
+    "button",
+    "ui"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusbastani/nsui",
+    "directory": "packages/ui/button"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist .turbo",
+    "dev": "tsup --watch",
+    "lint": "eslint . --ext ts,tsx"
+  },
+  "dependencies": {
+    "@nsui/provider": "workspace:*",
+    "@nsui/ripple": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "react": "^19.2.1",
+    "typescript": "^5.9.3"
+  }
+}
