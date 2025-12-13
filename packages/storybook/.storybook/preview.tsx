@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Preview } from '@storybook/nextjs-vite'
 import { NSUIProvider } from '@nsui/provider'
 import './globals.css'
